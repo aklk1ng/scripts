@@ -27,7 +27,6 @@ every10s() {
     [ $1 ] && sleep $1
     while true
     do
-        ~/scripts/set-screen.sh check &
         ~/scripts/dwm-status.sh &
         sleep 10
     done
@@ -44,7 +43,6 @@ every1000s() {
         [ "$WALLPAPER_MODE" = "PIC" ] && ~/scripts/set-wallpaper.sh &
     done
 }
-
 settings 1 &
 daemons 3 &
 every10s 5 &
