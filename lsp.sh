@@ -1,5 +1,6 @@
 #! /bin/bash
 sudo pacman -S clang
+sudo pacman -S python-pip
 pip install -U jedi-language-server
 suod npm i -g bash-language-servervvv
 npm i -g vscode-langservers-extracted
