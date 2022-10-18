@@ -1,9 +1,6 @@
 #! /bin/bash
 # DWM自启动脚本
 
-xrandr --dpi 192
-feh --bg-scale ~/wallpaper/Vm83FeC.png &
-mpd ~/.config/mpd/mpd.conf &
 
 settings() {
     [ $1 ] && sleep $1
@@ -15,7 +12,10 @@ settings() {
 }
 
 daemons() {
-    [ $1 ] && sleep $1
+    [ $1 ] && sleep $1 
+    xrandr --dpi 192
+    feh --bg-scale ~/wallpaper/ic8ubjf.png &
+    mpd ~/.config/mpd/mpd.conf &
     fcitx5 &
     pactl info &
     nm-applet &
@@ -27,12 +27,12 @@ daemons() {
     ~/scripts/app-starter.sh easyeffects &
 }
 
-every10s() {
+every1s() {
     [ $1 ] && sleep $1
     while true
     do
         ~/scripts/dwm-status.sh &
-        sleep 10
+        sleep 1
     done
 }
 
@@ -48,6 +48,6 @@ every1000s() {
     done
 }
 settings 1 &
-daemons 3 &
-every10s 5 &
+daemons &
+every1s &
 every1000s 30 &
