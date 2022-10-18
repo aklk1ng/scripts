@@ -1,6 +1,10 @@
 #! /bin/bash
 # DWM自启动脚本
 
+xrandr --dpi 192
+feh --bg-scale ~/wallpaper/Vm83FeC.png &
+mpd ~/.config/mpd/mpd.conf &
+
 settings() {
     [ $1 ] && sleep $1
     xset s 600

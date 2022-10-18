@@ -25,7 +25,7 @@ two() {
     _post TWO
 }
 one() {
-    xrandr --output $INNER_SCREEN --mode 1440x900 --pos 0x0 --scale 1x1  --primary  \
+    xrandr --output $INNER_SCREEN --mode 3200x2000--pos 0x0 --scale 1x1  --primary  \
            --output $OUT1_SCREEN --off \
            --output $OUt2_SCREEN --off
     _post ONE

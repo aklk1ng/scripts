@@ -7,7 +7,7 @@ source ~/.profile
 
 case $WALLPAPER_MODE in
     PIC)
-        feh --randomize --bg-fill ~/Pictures/002/*.png
+        feh --bg-scale ~/wallpaper/Vm83FeC.png &
         ;;
     MP4)
         killall mpv >> /dev/null 2>&1
