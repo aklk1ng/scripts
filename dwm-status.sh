@@ -6,15 +6,15 @@ source ~/.profile
 s2d_reset="^d^"
 s2d_fg="^c"
 s2d_bg="^b"
-color00="#2D1B46^"
+color00="#FF7FA8^"
 color01="#223344^"
-color02="#4E5173^"
+color02="#8A4179^"
 color03="#333344^"
 color04="#111199^"
 color05="#442266^"
-color06="#335566^"
-color07="#334466^"
-color08="#553388^"
+color06="#245566^"
+color07="#7F7256^"
+color08="#000000^"
 color09="#CCCCCC^"
 
 others_color="$s2d_fg$color01$s2d_bg$color02"
@@ -94,7 +94,8 @@ print_vol() {
     [ "$(pactl list sinks | grep $HEADPHONE_HSP_HFP_SONY)" ] && OUTPORT=$HEADPHONE_HSP_HFP_SONY
     [ "$(pactl list sinks | grep $VOICEBOX)" ] && OUTPORT=$VOICEBOX
     volunmuted=$(pactl list sinks | grep $OUTPORT -A 10 | grep 'Mute: no')
-    vol_text=$(pactl list sinks | grep $OUTPORT -A 8 | sed -n '8p' | awk '{printf int($5)}')
+    # vol_text=$(pactl list sinks | grep $OUTPORT -A 8 | sed -n '8p' | awk '{printf int($5)}')
+    vol_text=$(amixer sget Master | awk -F "[][]" '{print $2}')
     if [ "$vol_text" -eq 0 ] || [ ! "$volunmuted" ]; then vol_text="--"; vol_icon="婢";
     elif [ "$vol_text" -lt 10 ]; then vol_icon="奄"; vol_text=0$vol_text;
     elif [ "$vol_text" -le 20 ]; then vol_icon="奄";
