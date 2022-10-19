@@ -1,14 +1,13 @@
 #! /bin/bash
 # DWM自启动脚本
 
-
 settings() {
     [ $1 ] && sleep $1
     xset s 600
     xset -b
     syndaemon -i 1 -t -K -R -d
     xss-lock -- ~/scripts/app-starter.sh blurlock &
-    ~/scripts/set-screen.sh &
+    # ~/scripts/set-screen.sh &
 }
 
 daemons() {
@@ -20,7 +19,8 @@ daemons() {
     pactl info &
     nm-applet &
     flameshot &
-    xfce4-power-manager &
+    # xfce4-power-manager &
+    xcompmgr &
     dunst -conf ~/scripts/config/dunst.conf &
     lemonade server &
     ~/scripts/app-starter.sh picom &
@@ -49,5 +49,5 @@ every1000s() {
 }
 settings 1 &
 daemons &
-every1s &
+every1s 1 &
 every1000s 30 &

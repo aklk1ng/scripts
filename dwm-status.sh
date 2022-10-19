@@ -18,6 +18,7 @@ color08="#000000^"
 color09="#CCCCCC^"
 
 others_color="$s2d_fg$color01$s2d_bg$color02"
+  disk_color="$s2d_fg$color04$s2d_bg$color09"
    cpu_color="$s2d_fg$color00$s2d_bg$color06"
    mem_color="$s2d_fg$color05$s2d_bg$color07"
   time_color="$s2d_fg$color00$s2d_bg$color06"
@@ -28,7 +29,7 @@ print_others() {
     icons=()
     [ "$(docker ps | grep v2raya)" ] && icons=(${icons[@]} "")
     [ "$(docker ps | grep 'arch')" ] && icons=(${icons[@]} "")
-    [ "$(bluetoothctl info 64:03:7F:7C:81:15 | grep 'Connected: yes')" ] && icons=(${icons[@]} "")
+    [ "$(bluetoothctl info C4:8D:8C:DA:E2:A7 | grep 'Connected: yes')" ] && icons=(${icons[@]} "")
     [ "$(bluetoothctl info 8C:DE:F9:E6:E5:6B | grep 'Connected: yes')" ] && icons=(${icons[@]} "")
     [ "$(bluetoothctl info 88:C9:E8:14:2A:72 | grep 'Connected: yes')" ] && icons=(${icons[@]} "")
     [ "$(ps -aux | grep 'danmu_sender' | sed 1d)" ] && icons=(${icons[@]} "ﳲ")
@@ -40,6 +41,13 @@ print_others() {
         color=$others_color
         printf "%s%s%s" "$color" "$text" "$s2d_reset"
     fi
+}
+
+print_disk() {
+    disk_icon="﫭"
+    total_disk=$( df -h | grep '/dev/nvme0n1p7' | awk '{print $2}'| grep -Eo "[0-9]+" )
+    used_disk=$( df -h | grep '/dev/nvme0n1p7' | awk '{print $3}' | grep -Eo "[0-9]+")
+    used_rate=$( used_disk / total_disk )
 }
 
 print_cpu() {
@@ -65,7 +73,7 @@ print_mem() {
 }
 
 print_time() {
-    time_text="$(date '+%m/%d %H:%M')"
+    time_text="$(date '+%m/%d %H:%M:%S')"
     case "$(date '+%I')" in
         "01") time_icon="" ;;
         "02") time_icon="" ;;
@@ -87,15 +95,8 @@ print_time() {
 }
 
 print_vol() {
-    OUTPORT=$SPEAKER
-    [ "$(pactl list sinks | grep $HEADPHONE_A2DP)" ] && OUTPORT=$HEADPHONE_A2DP
-    [ "$(pactl list sinks | grep $HEADPHONE_HSP_HFP)" ] && OUTPORT=$HEADPHONE_HSP_HFP
-    [ "$(pactl list sinks | grep $HEADPHONE_A2DP_SONY)" ] && OUTPORT=$HEADPHONE_A2DP_SONY
-    [ "$(pactl list sinks | grep $HEADPHONE_HSP_HFP_SONY)" ] && OUTPORT=$HEADPHONE_HSP_HFP_SONY
-    [ "$(pactl list sinks | grep $VOICEBOX)" ] && OUTPORT=$VOICEBOX
-    volunmuted=$(pactl list sinks | grep $OUTPORT -A 10 | grep 'Mute: no')
-    # vol_text=$(pactl list sinks | grep $OUTPORT -A 8 | sed -n '8p' | awk '{printf int($5)}')
-    vol_text=$(amixer sget Master | awk -F "[][]" '{print $2}')
+    volunmuted=$(pamixer --get-mute)
+    vol_text=$(pamixer --get-volume)
     if [ "$vol_text" -eq 0 ] || [ ! "$volunmuted" ]; then vol_text="--"; vol_icon="婢";
     elif [ "$vol_text" -lt 10 ]; then vol_icon="奄"; vol_text=0$vol_text;
     elif [ "$vol_text" -le 20 ]; then vol_icon="奄";
