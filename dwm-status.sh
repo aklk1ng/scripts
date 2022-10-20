@@ -46,7 +46,7 @@ print_others() {
 print_disk() {
     disk_icon="﫭"
     used_rate=$( df -h | grep '/dev/nvme0n1p7' | awk '{print $5}' )
-    printf "%s/:%s" "$disk_icon" "$used_rate"
+    printf "%s %s" "$disk_icon" "$used_rate"
 }
 
 print_cpu() {
