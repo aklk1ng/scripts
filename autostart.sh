@@ -1,6 +1,10 @@
 #! /bin/bash
 # DWM自启动脚本
-
+xrandr --dpi 192
+feh --bg-scale ~/wallpaper/ic8ubjf.png &
+mpd ~/.config/mpd/mpd.conf &
+# xcompmgr &
+picom --experimental-backends --config ~/scripts/config/picom.conf &
 settings() {
     [ $1 ] && sleep $1
     xset s 600
@@ -12,18 +16,13 @@ settings() {
 
 daemons() {
     [ $1 ] && sleep $1 
-    xrandr --dpi 192
-    feh --bg-scale ~/wallpaper/ic8ubjf.png &
-    mpd ~/.config/mpd/mpd.conf &
     fcitx5 &
     pactl info &
     nm-applet &
     flameshot &
     # xfce4-power-manager &
-    xcompmgr &
-    dunst -conf ~/scripts/config/dunst.conf &
     lemonade server &
-    ~/scripts/app-starter.sh picom &
+    # ~/scripts/app-starter.sh picom &
     ~/scripts/app-starter.sh easyeffects &
 }
 

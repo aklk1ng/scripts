@@ -45,9 +45,8 @@ print_others() {
 
 print_disk() {
     disk_icon="﫭"
-    total_disk=$( df -h | grep '/dev/nvme0n1p7' | awk '{print $2}'| grep -Eo "[0-9]+" )
-    used_disk=$( df -h | grep '/dev/nvme0n1p7' | awk '{print $3}' | grep -Eo "[0-9]+")
-    used_rate=$( used_disk / total_disk )
+    used_rate=$( df -h | grep '/dev/nvme0n1p7' | awk '{print $5}' )
+    printf "%s/:%s" "$disk_icon" "$used_rate"
 }
 
 print_cpu() {
@@ -134,4 +133,4 @@ print_bat() {
     printf "%s%s%s" "$color" "$text" "$s2d_reset"
 }
 
-xsetroot -name "$(print_others)$(print_cpu)$(print_mem)$(print_time)$(print_vol)$(print_bat)"
+xsetroot -name "$(print_disk)$(print_cpu)$(print_mem)$(print_time)$(print_vol)$(print_bat)"
