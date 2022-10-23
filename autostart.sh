@@ -1,29 +1,27 @@
 #! /bin/bash
 # DWM自启动脚本
 xrandr --dpi 192
-feh --bg-scale ~/wallpaper/ic8ubjf.png &
 mpd ~/.config/mpd/mpd.conf &
-# xcompmgr &
-picom --experimental-backends --config ~/scripts/config/picom.conf &
+feh --bg-scale ~/wallpaper/ic8ubjf.png &
+fcitx5 &
 settings() {
     [ $1 ] && sleep $1
     xset s 600
     xset -b
     syndaemon -i 1 -t -K -R -d
-    xss-lock -- ~/scripts/app-starter.sh blurlock &
+    $DWM/statusbar/statusbar.sh cron &
     # ~/scripts/set-screen.sh &
 }
 
 daemons() {
     [ $1 ] && sleep $1 
-    fcitx5 &
     pactl info &
     nm-applet &
     flameshot &
+    picom --experimental-backends --config ~/scripts/config/picom.conf &
     # xfce4-power-manager &
-    lemonade server &
-    # ~/scripts/app-starter.sh picom &
-    ~/scripts/app-starter.sh easyeffects &
+    # lemonade server &
+    # ~/scripts/app-starter.sh easyeffects &
 }
 
 every1s() {
@@ -47,6 +45,6 @@ every1000s() {
     done
 }
 settings 1 &
-daemons &
+daemons 1 &
 every1s 1 &
 every1000s 30 &
