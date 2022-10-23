@@ -19,7 +19,7 @@ _post() {
 }
 two() {
     [ ! "$CONNECT_SCREEN" ] && one && return;
-    xrandr --output $INNER_SCREEN   --mode 1440x900  --pos 1920x325 --scale 1x1 \
+    xrandr --output $INNER_SCREEN   --mode 3200x2000  --pos 1920x325 --scale 1x1 \
            --output $CONNECT_SCREEN --mode 1920x1080 --pos 0x0      --scale 1x1 --primary \
            --output $DISCONNECT_SCREEN --off
     _post TWO
