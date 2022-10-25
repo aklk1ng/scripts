@@ -29,6 +29,7 @@ every1s() {
     while true
     do
         ~/scripts/dwm-status.sh &
+        ~/scripts/proxy.sh &
         sleep 1
     done
 }
