@@ -48,4 +48,4 @@ every1000s() {
 settings 1 &
 daemons 1 &
 every1s 1 &
-every1000s 30 &
+# every1000s 30 &
