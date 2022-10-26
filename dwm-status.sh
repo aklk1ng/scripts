@@ -45,7 +45,7 @@ print_others() {
 
 print_temperature() {
     temperature=$[$(cat /sys/class/thermal/thermal_zone0/temp)/1000]
-    printf "%s%s" "Tem:" "$temperature"
+    printf "%s%s" "Tem " "$temperature"
 }
 
 print_disk() {
