@@ -1,7 +1,7 @@
 #! /bin/bash
-sudo pacman -S clang python-pip lua-language-server
+sudo pacman -S clang python-pip lua-language-server vscode-json-languageserver
 pip install -U jedi-language-server
-suod npm i -g bash-language-servervvv vscode-langservers-extracted
+sudo npm i -g bash-language-server vscode-langservers-extracted
 go install golang.org/x/tools/gopls@latest
 pip install cmake-language-server
 sudo npm install -g typescript typescript-language-server
