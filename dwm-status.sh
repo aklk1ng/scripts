@@ -93,7 +93,7 @@ print_time() {
         "12") time_icon="" ;;
     esac
 
-    text=" $time_icon $time_text "
+    text=" $time_text "
     color=$time_color
     printf "%s%s%s" "$color" "$text" "$s2d_reset"
 }
@@ -138,4 +138,4 @@ print_bat() {
     printf "%s%s%s" "$color" "$text" "$s2d_reset"
 }
 
-xsetroot -name "$(print_disk)$(print_cpu)$(print_mem)$(print_temperature)$(print_time)$(print_vol)$(print_bat)"
+xsetroot -name "$(print_disk)$(print_cpu)$(print_temperature)$(print_time)$(print_vol)$(print_bat)"
