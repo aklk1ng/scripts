@@ -23,18 +23,5 @@ pigcha() {
         echo "pigcha is running!"
     fi
 }
-v2ray() {
-    ps -ef | grep v2ray | grep -v grep
-    if [ $? -ne 0 ]
-    then
-        echo "v2ray is not running!"
-    else
-        git config --global http.proxy http://127.0.0.1:18317 && git config --global https.proxy http://127.0.0.1:18317
-        npm config set proxy=http://127.0.0.1:18317
-        export https_proxy=http://127.0.0.1:18317 http_proxy=http://127.0.0.1:18317
-        echo "v2ray is running!"
-    fi
-}
 clash
 pigcha
-v2ray
