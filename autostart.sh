@@ -1,5 +1,6 @@
 #! /bin/bash
 # DWM自启动脚本
+nm-applet &
 xrandr --dpi 192
 mpd ~/.config/mpd/mpd.conf &
 feh --bg-scale ~/wallpaper/ic8ubjf.png &
@@ -16,7 +17,6 @@ settings() {
 daemons() {
     [ $1 ] && sleep $1 
     pactl info &
-    nm-applet &
     flameshot &
     picom --experimental-backends --config ~/scripts/config/picom.conf &
     # xfce4-power-manager &
