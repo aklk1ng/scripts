@@ -20,7 +20,6 @@ daemons() {
     flameshot &
     picom --experimental-backends --config ~/scripts/config/picom.conf &
     # xfce4-power-manager &
-    # lemonade server &
     # ~/scripts/app-starter.sh easyeffects &
 }
 
