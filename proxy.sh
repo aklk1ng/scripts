@@ -1,6 +1,6 @@
 #!/bin/bash
 clash() {
-    ps -ef | grep clash
+    ps -ef | grep clash | grep -v grep
     if [ $? -ne 0 ]
     then
         echo "clash is not running!"
@@ -12,7 +12,7 @@ clash() {
     fi
 }
 pigcha() {
-    ps -ef | grep pigcha 
+    ps -ef | grep pigcha | grep -v grep
     if [ $? -ne 0 ]
     then
         echo "pigcha is not running!"
@@ -24,7 +24,7 @@ pigcha() {
     fi
 }
 v2ray() {
-    ps -ef | grep v2ray 
+    ps -ef | grep v2ray | grep -v grep
     if [ $? -ne 0 ]
     then
         echo "v2ray is not running!"
