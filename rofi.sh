@@ -17,7 +17,8 @@ else
     main_menu_item[5]="open GO111MODULE"   ; main_cmd[5]='sed -i "s/GO111MODULE=.*/GO111MODULE=on/g" ~/.profile'
 fi
 
-server_menu_item[1]="v2raya"             ; server_cmd[1]='[ "$(docker ps | grep v2raya)" ] && docker stop v2raya >> /dev/null || docker restart v2raya >> /dev/null;'
+# server_menu_item[1]="v2raya"             ; server_cmd[1]='[ "$(docker ps | grep v2raya)" ] && docker stop v2raya >> /dev/null || docker restart v2raya >> /dev/null;'
+server_menu_item[1]="v2ray"             ; server_cmd[1]='killall v2ray || v2ray run /etc/v2ray/config.json'
 server_menu_item[2]="picom"              ; server_cmd[2]='killall picom || ~/scripts/app-starter.sh picom'
 server_menu_item[3]="easyeffects"        ; server_cmd[3]='killall easyeffects || ~/scripts/app-starter.sh easyeffects'
 server_menu_item[5]="aria2c"             ; server_cmd[5]='killall aria2c || ~/scripts/app-starter.sh aria2c'
