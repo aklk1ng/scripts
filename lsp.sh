@@ -5,6 +5,7 @@ sudo npm i -g bash-language-server vscode-langservers-extracted
 go install golang.org/x/tools/gopls@latest
 pip install cmake-language-server
 sudo npm install -g typescript typescript-language-server
+yarn global add yaml-language-server
 cd /usr/bin/
 sudo wget https://github.com/artempyanykh/marksman/releases/download/2022-09-13/marksman-linux
 sudo mv marksman-linux marksman && sudo chmod +x marksman
