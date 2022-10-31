@@ -39,7 +39,7 @@ every1000s() {
     do
         source ~/.profile
         xset -b
-        xmodmap ~/scripts/config/xmodmap.conf
+        # xmodmap ~/scripts/config/xmodmap.conf
         sleep 1000
         [ "$WALLPAPER_MODE" = "PIC" ] && ~/scripts/set-wallpaper.sh &
     done
