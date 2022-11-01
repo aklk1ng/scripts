@@ -45,7 +45,7 @@ print_others() {
 
 print_temperature() {
     temperature=$[$(cat /sys/class/thermal/thermal_zone0/temp)/1000]
-    printf "%s%s" "Tem " "$temperature"
+    printf "%s℃" "$temperature"
 }
 
 print_disk() {
@@ -138,4 +138,4 @@ print_bat() {
     printf "%s%s%s" "$color" "$text" "$s2d_reset"
 }
 
-xsetroot -name "$(print_disk)$(print_cpu)$(print_temperature)$(print_time)$(print_vol)$(print_bat)"
+xsetroot -name "$(print_disk)$(print_cpu)$(print_temperature$(print_time)$(print_vol)$(print_bat)"
