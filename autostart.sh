@@ -18,6 +18,7 @@ daemons() {
     [ $1 ] && sleep $1 
     pactl info &
     flameshot &
+    lemonade server &
     picom --experimental-backends --config ~/scripts/config/picom.conf &
     # xfce4-power-manager &
     # ~/scripts/app-starter.sh easyeffects &
