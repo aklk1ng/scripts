@@ -63,18 +63,18 @@ print_cpu() {
     printf "%s%s%s" "$color" "$text" "$s2d_reset"
 }
 
-print_mem() {
-    mem_total=$(cat /proc/meminfo | grep "MemTotal:"|awk '{print $2}')
-    mem_free=$(cat /proc/meminfo | grep "MemFree:"|awk '{print $2}')
-    mem_buffers=$(cat /proc/meminfo | grep "Buffers:"|awk '{print $2}')
-    mem_cached=$(cat /proc/meminfo | grep -w "Cached:"|awk '{print $2}')
-    men_usage_rate=$(((mem_total - mem_free - mem_buffers - mem_cached) * 100 / mem_total))
-	mem_icon=""
-    mem_text=$(echo $men_usage_rate | awk '{printf "%02d%", $1}')
-    text=" $mem_icon $mem_text "
-    color=$mem_color
-    printf "%s%s%s" "$color" "$text" "$s2d_reset"
-}
+# print_mem() {
+#     mem_total=$(cat /proc/meminfo | grep "MemTotal:"|awk '{print $2}')
+#     mem_free=$(cat /proc/meminfo | grep "MemFree:"|awk '{print $2}')
+#     mem_buffers=$(cat /proc/meminfo | grep "Buffers:"|awk '{print $2}')
+#     mem_cached=$(cat /proc/meminfo | grep -w "Cached:"|awk '{print $2}')
+#     men_usage_rate=$(((mem_total - mem_free - mem_buffers - mem_cached) * 100 / mem_total))
+# 	mem_icon=""
+#     mem_text=$(echo $men_usage_rate | awk '{printf "%02d%", $1}')
+#     text=" $mem_icon $mem_text "
+#     color=$mem_color
+#     printf "%s%s%s" "$color" "$text" "$s2d_reset"
+# }
 
 print_time() {
     time_text="$(date '+%m/%d %H:%M:%S')"
@@ -138,4 +138,4 @@ print_bat() {
     printf "%s%s%s" "$color" "$text" "$s2d_reset"
 }
 
-xsetroot -name "$(print_disk)$(print_cpu)$(print_temperature$(print_time)$(print_vol)$(print_bat)"
+xsetroot -name "$(print_disk)$(print_cpu)$(print_temperature)$(print_time)$(print_vol)$(print_bat)"
