@@ -10,7 +10,7 @@ settings() {
     xset s 600
     xset -b
     syndaemon -i 1 -t -K -R -d
-    $DWM/statusbar/statusbar.sh cron &
+    # $DWM/statusbar/statusbar.sh cron &
     # ~/scripts/set-screen.sh &
 }
 
