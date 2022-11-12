@@ -18,6 +18,7 @@ daemons() {
     [ $1 ] && sleep $1 
     pactl info &
     flameshot &
+    xmodmap ~/scripts/config/xmodmap.conf #让cpaslock代替esc键
     lemonade server &
     picom --experimental-backends --config ~/scripts/config/picom.conf &
     # xfce4-power-manager &
@@ -40,7 +41,6 @@ every1000s() {
     do
         source ~/.profile
         xset -b
-        xmodmap ~/scripts/config/xmodmap.conf #让cpaslock代替esc键
         sleep 1000
         [ "$WALLPAPER_MODE" = "PIC" ] && ~/scripts/set-wallpaper.sh &
     done
