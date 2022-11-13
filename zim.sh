@@ -166,7 +166,10 @@ function copy_cat_files()
     cp ~/zim/alisa.zsh ~/.zim/alisa.zsh
     cp ~/zim/env.zsh ~/.zim/env.zsh
     cat ~/zim/zimrc >> ~/.zimrc
-    cat ~/zim/zshrc >> ~/.zshrc
+    tp=$(uname -s)
+    if [[ $tp == "Linux"]]; then
+        cat ~/zim/zshrc >> ~/.zshrc
+    fi
 }
 
 function install_zim_on_mac()
