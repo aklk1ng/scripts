@@ -5,6 +5,7 @@ xrandr --dpi 192
 mpd ~/.config/mpd/mpd.conf &
 feh --bg-scale ~/wallpaper/ic8ubjf.png &
 fcitx5 &
+xmodmap ~/scripts/config/xmodmap.conf #让cpaslock代替esc键
 settings() {
     [ $1 ] && sleep $1
     xset s 600
@@ -18,7 +19,6 @@ daemons() {
     [ $1 ] && sleep $1 
     pactl info &
     flameshot &
-    xmodmap ~/scripts/config/xmodmap.conf #让cpaslock代替esc键
     lemonade server &
     picom --experimental-backends --config ~/scripts/config/picom.conf &
     # xfce4-power-manager &
