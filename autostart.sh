@@ -40,7 +40,7 @@ every1000s() {
     do
         source ~/.profile
         xset -b
-        xmodmap ~/scripts/config/xmodmap.conf #让cpaslock代替esc键
+        xmodmap ~/scripts/config/xmodmap.conf #让cpaslock代替esc键(目前好像只能让它在启动半分钟后自动启动，其他的都失效了)
         sleep 1000
         [ "$WALLPAPER_MODE" = "PIC" ] && ~/scripts/set-wallpaper.sh &
     done
