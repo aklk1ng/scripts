@@ -47,16 +47,7 @@ print_others() {
 print_disk() {
     disk_icon="﫭"
     used_rate=$( df -h | grep '/dev/nvme0n1p7' | awk '{print $5}' )
-    printf "%s %s%s" "$disk_icon" "$used_rate" "$s2d_reset"
-}
-
-print_cpu() {
-    cpu_icon="閭"
-    cpu_text=$(top -n 1 -b | sed -n '3p' | awk '{printf "%02d%", 100 - $8}')
-
-    text=" $cpu_icon $cpu_text "
-    color=$cpu_color
-    printf "%s%s%s" "$color" "$text" "$s2d_reset"
+    printf "%s %s %s" "$disk_icon" "$used_rate" "$s2d_reset"
 }
 
 print_time() {
