@@ -18,7 +18,8 @@ color08="#000000^"
 color09="#CCCCCC^"
 
 others_color="$s2d_fg$color01$s2d_bg$color02"
-  disk_color="$s2d_fg$color04$s2d_bg$color09"
+  disk_color="$s2d_fg$color07$s2d_bg$color09"
+  tem_color="$s2d_fg$color08$s2d_bg$color07"
    cpu_color="$s2d_fg$color00$s2d_bg$color06"
    mem_color="$s2d_fg$color05$s2d_bg$color07"
   time_color="$s2d_fg$color00$s2d_bg$color06"
@@ -43,15 +44,10 @@ print_others() {
     fi
 }
 
-print_temperature() {
-    temperature=$[$(cat /sys/class/thermal/thermal_zone0/temp)/1000]
-    printf "%s℃" "$temperature"
-}
-
 print_disk() {
     disk_icon="﫭"
     used_rate=$( df -h | grep '/dev/nvme0n1p7' | awk '{print $5}' )
-    printf "%s %s" "$disk_icon" "$used_rate"
+    printf "%s %s%s" "$disk_icon" "$used_rate" "$s2d_reset"
 }
 
 print_cpu() {
@@ -110,4 +106,4 @@ print_bat() {
     printf "%s%s%s" "$color" "$text" "$s2d_reset"
 }
 
-xsetroot -name "$(print_disk)$(print_cpu)$(print_temperature)$(print_time)$(print_vol)$(print_bat)"
+xsetroot -name "$(print_disk)$(print_time)$(print_vol)$(print_bat)"
