@@ -1,5 +1,5 @@
 #! /bin/bash
-sudo pacman -S clang python-pip gopls jedi-language-server bash-language-server lua-language-server vscode-json-languageserver yaml-language-server vscode-html-languageserver vscode-css-languageserver
+sudo pacman -S clang python-pip gopls jedi-language-server bash-language-server lua-language-server vscode-json-languageserver vscode-html-languageserver vscode-css-languageserver
 pip install -U jedi-language-server
 sudo npm i -g bash-language-server vscode-langservers-extracted cssmodules-language-server
 # go install golang.org/x/tools/gopls@latest
