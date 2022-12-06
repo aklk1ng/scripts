@@ -49,7 +49,7 @@ print_disk() {
     used_rate=$( df -h | grep '/dev/nvme0n1p7' | awk '{print $5}' )
     text=" $disk_icon $used_rate"
     color="$disk_color"
-    printf "%s %s %s" "$color" "$text" "$s2d_reset"
+    printf "%s%s %s" "$color" "$text" "$s2d_reset"
 }
 
 print_time() {
