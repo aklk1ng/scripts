@@ -7,7 +7,6 @@ clash() {
     else
         proxy=$(cat ~/.npmrc)
         if [[ $proxy ]]; then
-        else
             git config --global http.proxy http://127.0.0.1:7890 && git config --global https.proxy http://127.0.0.1:7890
             npm config set proxy=http://127.0.0.1:7890
             export https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:7890
@@ -22,7 +21,6 @@ pigcha() {
     else
         proxy=$(cat ~/.npmrc)
         if [[ $proxy ]]; then
-        else    
             git config --global http.proxy http://127.0.0.1:15777 && git config --global https.proxy http://127.0.0.1:15777
             npm config set proxy=http://127.0.0.1:15777
             export https_proxy=http://127.0.0.1:15777 http_proxy=http://127.0.0.1:15777
