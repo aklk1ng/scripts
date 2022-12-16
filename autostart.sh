@@ -3,7 +3,7 @@
 nm-applet &
 xrandr --dpi 192
 mpd ~/.config/mpd/mpd.conf &
-feh --bg-scale ~/wallpaper/wallhaven-wey3zp.png &
+feh --bg-scale ~/wallpaper/archlinux_wallpaper.png &
 fcitx5 &
 settings() {
     [ $1 ] && sleep $1
