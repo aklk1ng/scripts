@@ -1,4 +1,4 @@
-#!/bin/bash
+#! /bin/bash
 clash() {
     ps -ef | grep clash | grep -v grep
     if [ $? -ne 0 ]
