@@ -5,4 +5,4 @@ sudo npm i -g vscode-langservers-extracted cssmodules-language-server
 # go install golang.org/x/tools/gopls@latest
 pip install cmake-language-server
 sudo npm install -g typescript typescript-language-server
-yay -S marksman-bin
+proxychains yay -S marksman-bin
