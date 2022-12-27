@@ -5,12 +5,9 @@ clash() {
     then
         echo "clash is not running!"
     else
-        proxy=$(cat ~/.npmrc)
-        if [[ $proxy ]]; then
-            git config --global http.proxy http://127.0.0.1:7890 && git config --global https.proxy http://127.0.0.1:7890
-            npm config set proxy=http://127.0.0.1:7890
-            export https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:7890
-        fi
+        git config --global http.proxy http://127.0.0.1:7890 && git config --global https.proxy http://127.0.0.1:7890
+        npm config set proxy=http://127.0.0.1:7890
+        export https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:7890
     fi
 }
 pigcha() {
@@ -19,12 +16,9 @@ pigcha() {
     then
         echo "pigcha is not running!"
     else
-        proxy=$(cat ~/.npmrc)
-        if [[ $proxy ]]; then
-            git config --global http.proxy http://127.0.0.1:15777 && git config --global https.proxy http://127.0.0.1:15777
-            npm config set proxy=http://127.0.0.1:15777
-            export https_proxy=http://127.0.0.1:15777 http_proxy=http://127.0.0.1:15777
-        fi
+        git config --global http.proxy http://127.0.0.1:15777 && git config --global https.proxy http://127.0.0.1:15777
+        npm config set proxy=http://127.0.0.1:15777
+        export https_proxy=http://127.0.0.1:15777 http_proxy=http://127.0.0.1:15777
     fi
 }
 clash
