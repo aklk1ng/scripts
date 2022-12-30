@@ -30,7 +30,7 @@ pigcha() {
 clash
 pigcha
 
-proxychains yay -S ttf-material-design-icons ttf-joypixels wqy-microhei
+proxychains yay -S ttf-material-design-icons ttf-joypixels wqy-microhei cava
 sudo pacman -S xclip tmux pcmanfm flameshot pamixer acpi light xorg-xbacklight xmodmap dunst rofi feh v2ray i3lock mpd mpc ncmpcpp pactl python nodejs yarn fzf ripgrep
 pip install pynvim
 npm install -g neovim
