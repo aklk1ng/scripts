@@ -32,7 +32,7 @@ pigcha
 
 sudo pacman -S clang delve rust-analyzer python-pip gopls jedi-language-server bash-language-server lua-language-server vscode-json-languageserver vscode-html-languageserver vscode-css-languageserver
 # pip install -U jedi-language-server
-sudo npm i -g vscode-langservers-extracted cssmodules-language-server
+sudo npm i -g vscode-langservers-extracted
 # go install golang.org/x/tools/gopls@latest
 pip install cmake-language-server debugpy
 sudo npm install -g typescript typescript-language-server
