@@ -31,6 +31,6 @@ clash
 pigcha
 
 proxychains yay -S i3lock-color keyd ttf-material-design-icons ttf-joypixels wqy-microhei cava
-sudo pacman -S pavucontrol byzanz network-manager-applet xorg-xsetroot xclip tmux pcmanfm flameshot pamixer acpi light xorg-xbacklight xmodmap dunst libnotify rofi feh v2ray i3lock mpd mpc ncmpcpp pactl python nodejs yarn fzf ripgrep
+sudo pacman -S pavucontrol imagemagick network-manager-applet xorg-xsetroot xclip tmux pcmanfm flameshot pamixer acpi light xorg-xbacklight xmodmap dunst libnotify rofi feh v2ray i3lock mpd mpc ncmpcpp pactl python nodejs yarn fzf ripgrep
 pip install pynvim
 npm install -g neovim
