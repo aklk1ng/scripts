@@ -35,6 +35,6 @@ sudo pacman -S clang delve rust-analyzer python-pip gopls jedi-language-server b
 sudo npm i -g vscode-langservers-extracted
 # go install golang.org/x/tools/gopls@latest
 pip install python-language-server cmake-language-server debugpy
-sudo npm install -g typescript typescript-language-server
+sudo npm install -g typescript typescript-language-server dockerfile-language-server-nodejs
 proxychains yay -S marksman-bin
 brew install llvm
