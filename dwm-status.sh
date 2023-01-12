@@ -19,12 +19,11 @@ color09="#CCCCCC^"
 
 others_color="$s2d_fg$color01$s2d_bg$color02"
   disk_color="$s2d_fg$color09$s2d_bg$color01"
-  tem_color="$s2d_fg$color06$s2d_bg$color09"
    cpu_color="$s2d_fg$color00$s2d_bg$color06"
    mem_color="$s2d_fg$color05$s2d_bg$color07"
   time_color="$s2d_fg$color00$s2d_bg$color06"
    vol_color="$s2d_fg$color08$s2d_bg$color07"
-   bat_color="$s2d_fg$color00$s2d_bg$color02"
+   bat_color="$s2d_fg$color00$s2d_bg$color06"
 
 print_others() {
     icons=()
@@ -40,7 +39,7 @@ print_others() {
     if [ "$icons" ]; then
         text=" ${icons[@]} "
         color=$others_color
-        printf "%s%s%s" "$color" "$text" "$s2d_reset"
+        printf "%s%s%s" "$color" "$text " "$s2d_reset"
     fi
 }
 
@@ -99,4 +98,4 @@ print_bat() {
     printf "%s%s%s" "$color" "$text" "$s2d_reset"
 }
 
-xsetroot -name "$(print_disk)$(print_time)$(print_vol)$(print_bat)"
+xsetroot -name "$(print_others)$(print_disk)$(print_time)$(print_vol)$(print_bat)"

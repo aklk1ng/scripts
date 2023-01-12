@@ -30,8 +30,7 @@ pigcha() {
 clash
 pigcha
 
-sudo pacman -S clang delve rust-analyzer python-pip gopls jedi-language-server bash-language-server lua-language-server vscode-json-languageserver vscode-html-languageserver vscode-css-languageserver
-# pip install -U jedi-language-server
+sudo pacman -S clang delve rust-analyzer python-pip gopls bash-language-server lua-language-server vscode-json-languageserver vscode-css-languageserver
 sudo npm i -g vscode-langservers-extracted
 # go install golang.org/x/tools/gopls@latest
 pip install python-language-server cmake-language-server debugpy

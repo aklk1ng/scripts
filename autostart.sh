@@ -3,7 +3,7 @@
 nm-applet &
 xrandr --dpi 192
 mpd ~/.config/mpd/mpd.conf &
-feh --bg-scale ~/wallpaper/archlinux_wallpaper.png &
+feh --bg-scale ~/wallpaper/solo-leveling.png &
 fcitx5 &
 settings() {
     [ $1 ] && sleep $1
@@ -39,11 +39,11 @@ every1000s() {
     while true
     do
         source ~/.profile
-        xset -b
+        # xset -b
         # use keyd instead of xmodmap
         # xmodmap ~/scripts/config/xmodmap.conf
         sleep 1000
-        [ "$WALLPAPER_MODE" = "PIC" ] && ~/scripts/set-wallpaper.sh &
+        # [ "$WALLPAPER_MODE" = "PIC" ] && ~/scripts/set-wallpaper.sh &
     done
 }
 settings 1 &
