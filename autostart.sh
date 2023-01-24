@@ -9,14 +9,14 @@ settings() {
     [ $1 ] && sleep $1
     xset s 600
     xset -b
-    xset r rate 210 40
+    xset r rate 300 40
     syndaemon -i 1 -t -K -R -d
     # $DWM/statusbar/statusbar.sh cron &
     # ~/scripts/set-screen.sh &
 }
 
 daemons() {
-    [ $1 ] && sleep $1 
+    [ $1 ] && sleep $1
     pactl info &
     flameshot &
     lemonade server &
