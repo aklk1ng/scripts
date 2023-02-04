@@ -19,7 +19,7 @@ configuration {
 }
 
 * {
-  font: "Cousine Nerd Font Mono 15";
+  font: "Cousine Nerd Font 17";
   background-color: transparent;
   text-color: #f1f1f1;
   width: 1000;
