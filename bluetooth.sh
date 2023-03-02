@@ -10,38 +10,38 @@ KEYBOARD1=C4:8D:8C:DA:E2:A7
 # VOICEBOX=8C:DE:F9:E6:E5:6B
 
 ls() {
-    # echo m1  bluetoothctl connect MOUSE1
-    # echo m2  bluetoothctl connect MOUSE2
-    echo k1  bluetoothctl connect KEYBOARD1
-    # echo k2  bluetoothctl connect KEYBOARD2
-    # echo hp  bluetoothctl connect HEADPHONE
-    # echo hp2 bluetoothctl connect HEADPHONE-SONY
-    # echo vb  bluetoothctl connect VOICEBOX
+  # echo m1  bluetoothctl connect MOUSE1
+  # echo m2  bluetoothctl connect MOUSE2
+  echo k1  bluetoothctl connect KEYBOARD1
+  # echo k2  bluetoothctl connect KEYBOARD2
+  # echo hp  bluetoothctl connect HEADPHONE
+  # echo hp2 bluetoothctl connect HEADPHONE-SONY
+  # echo vb  bluetoothctl connect VOICEBOX
 }
 blconnect() {
-    bluetoothctl connect $1
-    notify-send 蓝牙设备 "$1已连接"
-    ~/scripts/dwm-status.sh
+  bluetoothctl connect $1
+  notify-send 蓝牙设备 "$1已连接"
+  ~/scripts/dwm-status.sh
 }
 bldisconnect() {
-    bluetoothctl disconnect $1
-    notify-send 蓝牙设备 "$1已断开"
-    ~/scripts/dwm-status.sh
+  bluetoothctl disconnect $1
+  notify-send 蓝牙设备 "$1已断开"
+  ~/scripts/dwm-status.sh
 }
 case $1 in
-    # m1)   blconnect $MOUSE1;;
-    # m2)   blconnect $MOUSE2;;
-    k1)   blconnect $KEYBOARD1;;
-    # k2)   blconnect $KEYBOARD2;;
-    # hp)   blconnect $HEADPHONE;;
-    # hp2)  blconnect $HEADPHONE2;;
-    # vb)   blconnect $VOICEBOX;;
-    # dm1)  bldisconnect $MOUSE1;;
-    # dm2)  bldisconnect $MOUSE2;;
-    dk1)  bldisconnect $KEYBOARD1;;
-    # dk2)  bldisconnect $KEYBOARD2;;
-    # dhp)  bldisconnect $HEADPHONE;;
-    # dhp2) bldisconnect $HEADPHONE2;;
-    # dvb)  bldisconnect $VOICEBOX;;
-    *)    ls ;;
+  # m1)   blconnect $MOUSE1;;
+  # m2)   blconnect $MOUSE2;;
+  k1)   blconnect $KEYBOARD1;;
+  # k2)   blconnect $KEYBOARD2;;
+  # hp)   blconnect $HEADPHONE;;
+  # hp2)  blconnect $HEADPHONE2;;
+  # vb)   blconnect $VOICEBOX;;
+  # dm1)  bldisconnect $MOUSE1;;
+  # dm2)  bldisconnect $MOUSE2;;
+  dk1)  bldisconnect $KEYBOARD1;;
+  # dk2)  bldisconnect $KEYBOARD2;;
+  # dhp)  bldisconnect $HEADPHONE;;
+  # dhp2) bldisconnect $HEADPHONE2;;
+  # dvb)  bldisconnect $VOICEBOX;;
+  *)    ls ;;
 esac
