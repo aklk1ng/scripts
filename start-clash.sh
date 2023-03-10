@@ -9,6 +9,7 @@ set_menu() {
 
 set_menu "Wallless" './clash-linux-386-v1.12.0 -f Wallless.yaml -d . &'
 set_menu "glados" './clash-linux-386-v1.12.0 -f glados.yaml -d . &'
+set_menu "ikuu" './clash-linux-386-v1.12.0 -f ikuu.yaml -d . &'
 
 _list() {
     for ((i = 0; i < ${#menu_items[@]}; i++)); do

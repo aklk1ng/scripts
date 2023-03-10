@@ -35,5 +35,5 @@ sudo npm i -g vscode-langservers-extracted
 # go install golang.org/x/tools/gopls@latest
 pip install python-language-server cmake-language-server debugpy
 sudo npm install -g typescript typescript-language-server dockerfile-language-server-nodejs
-proxychains yay -S marksman-bin
+go install github.com/bufbuild/buf-language-server/cmd/bufls@latest
 # brew install llvm
