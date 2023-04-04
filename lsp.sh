@@ -1,8 +1,6 @@
 #! /bin/bash
 
-
-function get_linux_distro ()
-{
+function get_linux_distro() {
     if grep -Eq "Ubuntu" /etc/*-release; then
         echo "Ubuntu"
     elif grep -Eq "Deepin" /etc/*-release; then
@@ -22,13 +20,12 @@ function get_linux_distro ()
     fi
 }
 
-function get_uname ()
-{
+function get_uname() {
     type=$(uname)
-    distro=`get_linux_distro`
+    distro=$(get_linux_distro)
     if [ $type == "Darwin" ]; then
         mac install
-    elif [ $type == "Linux" -a $distro == 'ArchLinux'  ]; then
+    elif [ $type == "Linux" -a $distro == 'ArchLinux' ]; then
         linux install
     else
         echo "Not support platform type: "${type}
@@ -36,50 +33,50 @@ function get_uname ()
 
 }
 
-function install () {
+function install() {
     get_uname
 }
 
 function check() {
     ps -ef | grep clash | grep -v grep
-    if [ $? -ne 0 ]
-    then
+    if [ $? -ne 0 ]; then
         echo "clash isn't runnning"
     fi
 }
 
-function mac () {
+function mac() {
     output=check
     if [[ ! (-z $output) ]]; then
         return
     else
         case "$1" in
-            install)
-                pip install python-lsp-sever cmake-language-server
-                brew install llvm rust-analyzer gopls bash-language-server lua-language-server marksman typescript-language-server
-                sudo npm install -g dockerfile-language-server-nodejs vscode-langservers-extracted
-                ;;
+        install)
+            pip install python-lsp-sever cmake-language-server
+            brew install llvm rust-analyzer gopls bash-language-server marksman lua-language-server typescript-language-server
+            sudo npm install -g dockerfile-language-server-nodejs vscode-langservers-extracted
+            ;;
         esac
     fi
 }
 
-function linux () {
+function linux() {
     output=check
     if [[ ! (-z $output) ]]; then
         return
     else
         case "$1" in
-            install)
-                sudo pacman -S clang python-pip rust-analyzer gopls bash-language-server lua-language-server vscode-json-languagch e-server tsserver
-                pip install python-lsp-sever cmake-language-server
-                brew install marksman
-                sudo npm install -g dockerfile-language-server-nodejs vscode-langservers-extracted
-                ;;
+        install)
+            sudo pacman -S clang python-pip rust-analyzer gopls bash-language-server lua-language-server tsserver
+            pip install python-lsp-sever cmake-language-server
+            brew install marksman
+            sudo npm install -g dockerfile-language-server-nodejs vscode-langservers-extracted
+            ;;
         esac
     fi
 }
 
 case "$1" in
-    install) install
+install)
+    install
     ;;
 esac
