@@ -52,7 +52,6 @@ function mac() {
         case "$1" in
         install)
             pip3 install cmake-language-server
-            yarn global add yaml-language-server
             brew install llvm rust-analyzer gopls bash-language-server marksman lua-language-server typescript-language-server pyright
             sudo npm install -g dockerfile-language-server-nodejs vscode-langservers-extracted
             ;;
@@ -68,7 +67,6 @@ function linux() {
         case "$1" in
         install)
             sudo pacman -S clang python-pip rust-analyzer gopls bash-language-server lua-language-server tsserver pyright
-            yarn global add yaml-language-server
             pip3 install cmake-language-server
             brew install marksman
             sudo npm install -g dockerfile-language-server-nodejs vscode-langservers-extracted
