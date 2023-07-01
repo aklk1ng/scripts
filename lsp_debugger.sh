@@ -19,5 +19,4 @@ sudo pacman -S clang delve rust-analyzer python-pip gopls bash-language-server l
 sudo npm i -g vscode-langservers-extracted
 pip install python-language-server cmake-language-server debugpy --break-system-packages
 sudo npm install -g typescript typescript-language-server dockerfile-language-server-nodejs
-go install github.com/bufbuild/buf-language-server/cmd/bufls@latest
 brew install llvm
