@@ -66,7 +66,7 @@ function linux() {
     else
         case "$1" in
         install)
-            sudo pacman -S clang python-pip gopls bash-language-server lua-language-server tsserver pyright
+            sudo pacman -S clang python-pip gopls bash-language-server lua-language-server tsserver pyright zls
             sudo yay -S rustup
             rustup component add rust-analyzer 
             pip3 install cmake-language-server
