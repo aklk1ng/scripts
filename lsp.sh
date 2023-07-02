@@ -71,7 +71,7 @@ function linux() {
             rustup component add rust-analyzer 
             pip3 install cmake-language-server
             brew install marksman
-            sudo npm install -g dockerfile-language-server-nodejs vscode-langservers-extracted
+            sudo npm install -g typescript dockerfile-language-server-nodejs vscode-langservers-extracted typescript-language-server
             ;;
         esac
     fi
