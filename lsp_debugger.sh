@@ -15,7 +15,7 @@ clash() {
 }
 clash
 
-sudo pacman -S clang delve rust-analyzer python-pip vscode-json-languageserver
+sudo pacman -S llvm delve rust-analyzer python-pip vscode-json-languageserver
 pip3 install python-language-server debugpy --break-system-packages
 sudo npm install -g typescript typescript-language-server dockerfile-language-server-nodejs
-brew install llvm
+# brew install llvm
