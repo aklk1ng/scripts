@@ -16,8 +16,8 @@ clash() {
 clash
 
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-yay -S i3lock-color keyd wqy-microhei cava
-sudo pacman -S xdotool pavucontrol xfce4-power-manager imagemagick network-manager-applet xorg-xsetroot xclip tmux pcmanfm flameshot pamixer acpi light xorg-xbacklight dunst libnotify rofi feh mpd mpc ncmpcpp pactl python nodejs yarn fzf ripgrep
-pip install pynvim --break-system-packages
-brew install stow cal
+yay -S i3lock-color keyd wqy-microhei cava stow
+sudo pacman -S xdotool pavucontrol xfce4-power-manager imagemagick network-manager-applet xorg-xsetroot xclip tmux pcmanfm flameshot pamixer acpi light xorg-xbacklight dunst libnotify rofi feh mpd mpc ncmpcpp pactl python nodejs yarn fzf ripgrep cal
+pip3 install pynvim --break-system-packages
+# brew install stow cal
 sudo npm install -g neovim
