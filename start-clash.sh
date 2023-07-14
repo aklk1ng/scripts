@@ -4,12 +4,15 @@ si=0
 set_menu() {
     menu_items[$si]=$1
     cmds[$si]=$2
-    si=$(($si+1))
+    si=$(($si + 1))
 }
 
-set_menu "Wallless" './clash-linux-386-v1.12.0 -f Wallless.yaml -d . &'
-set_menu "glados" './clash-linux-386-v1.12.0 -f glados.yaml -d . &'
-set_menu "ikuu" './clash-linux-386-v1.12.0 -f ikuuu.yaml -d . &'
+get_config_files() {
+    for file in $(ls *.yaml); do
+        file_name=${file%.*}
+        set_menu $file_name "./clash-linux-386-v1.12.0 -f $file -d . &"
+    done
+}
 
 _list() {
     for ((i = 0; i < ${#menu_items[@]}; i++)); do
@@ -36,21 +39,23 @@ _preview() {
 }
 
 _clash() {
-    proxy=$(_list | fzf \
-        --cycle \
-        --header='switch clash proxy' \
-        --header-first \
-        --height=10 \
-        --preview-window=bottom:1:wrap,border-up
+    prev_hook
+    get_config_files
+    proxy=$(
+        _list | fzf \
+            --cycle \
+            --header='switch clash proxy' \
+            --header-first \
+            --height=10 \
+            --preview-window=bottom:1:wrap,border-up
     )
     [[ -z "$proxy" ]] && exit 0
     [[ -z "$(_index "$proxy")" ]] && echo $proxy && exit 0
-    prev_hook
     exec $(_preview "$proxy")
 }
 
 case "$1" in
-    *)
-        _clash
+*)
+    _clash
     ;;
 esac
