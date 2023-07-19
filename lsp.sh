@@ -1,31 +1,11 @@
 #! /bin/bash
 
-function get_linux_distro() {
-    if grep -Eq "Ubuntu" /etc/*-release; then
-        echo "Ubuntu"
-    elif grep -Eq "Deepin" /etc/*-release; then
-        echo "Deepin"
-    elif grep -Eq "LinuxMint" /etc/*-release; then
-        echo "LinuxMint"
-    elif grep -Eq "Debian" /etc/*-release; then
-        echo "Debian"
-    elif grep -Eq "Kali" /etc/*-release; then
-        echo "Kali"
-    elif grep -Eq "fedora" /etc/*-release; then
-        echo "fedora"
-    elif grep -Eq "Arch Linux" /etc/*-release; then
-        echo "ArchLinux"
-    else
-        echo "Unknown"
-    fi
-}
-
 function get_uname() {
     type=$(uname)
     distro=$(get_linux_distro)
     if [ $type == "Darwin" ]; then
         mac install
-    elif [ $type == "Linux" -a $distro == 'ArchLinux' ]; then
+    elif [ $type == "Linux" ]; then
         linux install
     else
         echo "Not support platform type: "${type}
