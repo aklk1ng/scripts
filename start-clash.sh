@@ -10,7 +10,7 @@ set_menu() {
 get_config_files() {
     for file in $(ls *.yaml); do
         file_name=${file%.*}
-        set_menu $file_name "./clash-linux-386-v1.12.0 -f $file -d . &"
+        set_menu $file_name "clash -f $file -d . &"
     done
 }
 
