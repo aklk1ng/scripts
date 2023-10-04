@@ -1,8 +1,7 @@
 #! /bin/bash
 clash() {
     ps -ef | grep clash | grep -v grep
-    if [ $? -ne 0 ]
-    then
+    if [ $? -ne 0 ]; then
         echo "clash is not running!"
     else
         proxy=$(cat ~/.npmrc)
@@ -15,7 +14,7 @@ clash() {
 }
 clash
 
-sudo pacman -S llvm delve rust-analyzer python-pip vscode-json-languageserver
+sudo pacman -S llvm rust-analyzer python-pip
 pip3 install python-language-server debugpy --break-system-packages
 sudo npm install -g typescript typescript-language-server dockerfile-language-server-nodejs
 # brew install llvm
