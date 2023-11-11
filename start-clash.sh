@@ -29,7 +29,7 @@ _index() {
 }
 
 prev_hook() {
-    killall -q clash-linux-386-v1.12.0
+    killall -q clash*
     cd /home/cjh/clash || return
 }
 
