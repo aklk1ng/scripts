@@ -1,5 +1,5 @@
 #! /bin/bash
-:<<!
+: <<!
   设置屏幕分辨率的脚本
   one: INNER
   two: OUT - INNER
@@ -17,14 +17,14 @@ two() {
     OUTPORT_DISCONNECTED=$(xrandr | grep -v $INNER_PORT | grep -w 'disconnected' | awk '{print $1}')
     [ ! "$OUTPORT_CONNECTED" ] && one && return # 如果没有外接屏幕则直接调用one函数
     xrandr --output $INNER_PORT --mode 1440x900 --pos 1920x320 --scale 1x1 \
-           --output $OUTPORT_CONNECTED --mode 1920x1080 --pos 0x0 --scale 1x1 --primary \
-           --output $OUTPORT_DISCONNECTED --off
+        --output $OUTPORT_CONNECTED --mode 1920x1080 --pos 0x0 --scale 1x1 --primary \
+        --output $OUTPORT_DISCONNECTED --off
     feh --randomize --bg-fill ~/Pictures/wallpaper/*.png
 }
 one() {
     xrandr --output $INNER_PORT --mode 1440x900 --pos 0x0 --scale 1x1 --primary \
-           --output $OUTPORT1 --off \
-           --output $OUTPORT2 --off
+        --output $OUTPORT1 --off \
+        --output $OUTPORT2 --off
     feh --randomize --bg-fill ~/Pictures/wallpaper/*.png
 }
 check() {
@@ -35,8 +35,8 @@ check() {
 }
 
 case $1 in
-    one) one ;;
-    two) two ;;
-    check) check ;;
-    *) check ;;
+one) one ;;
+two) two ;;
+check) check ;;
+*) check ;;
 esac
