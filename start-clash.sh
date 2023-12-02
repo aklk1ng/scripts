@@ -47,6 +47,7 @@ _clash() {
             --header='switch clash proxy' \
             --header-first \
             --height=10 \
+            --preview '' \
             --preview-window=bottom:1:wrap,border-up
     )
     [[ -z "$proxy" ]] && exit 0
