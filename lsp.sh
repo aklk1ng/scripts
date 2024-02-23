@@ -31,10 +31,8 @@ function mac() {
     else
         case "$1" in
         install)
-            pip3 install cmake-language-server
-            brew install llvm gopls lua-language-server typescript-language-server pyright
+            brew install gopls lua-language-server pyright
             rustup component add rust-analyzer
-            sudo npm install -g dockerfile-language-server-nodejs vscode-langservers-extracted
             ;;
         esac
     fi
@@ -50,8 +48,6 @@ function linux() {
             sudo pacman -S pyright clang gopls lua-language-server zls --noconfirm
             sudo yay -S rustup --noconfirm
             rustup component add rust-analyzer
-            pip3 install cmake-language-server
-            sudo npm install -g typescript dockerfile-language-server-nodejs vscode-langservers-extracted typescript-language-server
             ;;
         esac
     fi
