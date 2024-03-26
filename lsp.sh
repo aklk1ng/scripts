@@ -1,21 +1,4 @@
-#! /bin/bash
-
-function get_uname() {
-    type=$(uname)
-    distro=$(get_linux_distro)
-    if [ $type == "Darwin" ]; then
-        mac install
-    elif [ $type == "Linux" ]; then
-        linux install
-    else
-        echo "Not support platform type: "${type}
-    fi
-
-}
-
-function install() {
-    get_uname
-}
+#!/usr/bin/env bash
 
 function check() {
     ps -ef | grep clash | grep -v grep
@@ -24,37 +7,15 @@ function check() {
     fi
 }
 
-function mac() {
-    output=check
+function install() {
+    output=$(check)
     if [[ ! (-z $output) ]]; then
         return
     else
-        case "$1" in
-        install)
-            brew install gopls lua-language-server pyright
-            rustup component add rust-analyzer
-            ;;
-        esac
+        sudo pacman -S pyright clang gopls lua-language-server zls --noconfirm
+        sudo yay -S rustup --noconfirm
+        rustup component add rust-analyzer
     fi
 }
 
-function linux() {
-    output=check
-    if [[ ! (-z $output) ]]; then
-        return
-    else
-        case "$1" in
-        install)
-            sudo pacman -S pyright clang gopls lua-language-server zls --noconfirm
-            sudo yay -S rustup --noconfirm
-            rustup component add rust-analyzer
-            ;;
-        esac
-    fi
-}
-
-case "$1" in
-install)
-    install
-    ;;
-esac
+install
