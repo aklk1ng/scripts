@@ -12,9 +12,9 @@ function install() {
     if [[ ! (-z $output) ]]; then
         return
     else
-        sudo pacman -S pyright clang gopls lua-language-server zls --noconfirm
+        sudo pacman -S pyright bash-language-server clang gopls lua-language-server zls --noconfirm
         sudo yay -S rustup --noconfirm
-        rustup component add rust-analyzer
+        # rustup component add rust-analyzer
     fi
 }
 
