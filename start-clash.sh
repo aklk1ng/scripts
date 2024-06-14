@@ -30,7 +30,7 @@ _index() {
 
 prev_hook() {
     killall -q clash*
-    cd /home/cjh/clash || return
+    cd $HOME/clash || return
 }
 
 _preview() {
