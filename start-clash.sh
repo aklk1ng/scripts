@@ -8,7 +8,7 @@ prev_hook() {
 main() {
     prev_hook
     config=$(
-        ls -a *.yaml | rev | cut -d. -f2- | rev | fzf \
+        ls -a *.yaml | xargs -I@ basename -s .yaml @ | fzf \
             --cycle \
             --header='Switch clash config' \
             --header-first \
